@@ -1,5 +1,6 @@
 defmodule BencheeTest do
   use ExUnit.Case, async: true
+  use Darwin.TestCase
 
   alias Benchee.{
     Conversion.Duration,

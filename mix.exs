@@ -36,7 +36,15 @@ defmodule Benchee.Mixfile do
       description: """
       Versatile (micro) benchmarking that is extensible. Get statistics such as:
       average, iterations per second, standard deviation and the median.
-      """
+      """,
+      darwin: [
+        modules: [
+          {Benchee, []},
+          {Benchee.Benchmark, []},
+          {Benchee.Statistics, []},
+          {Benchee.Conversion, []}
+        ]
+      ]
     ]
   end
 
@@ -57,7 +65,8 @@ defmodule Benchee.Mixfile do
       {:earmark, "~> 1.0", only: :dev},
       {:excoveralls, "~> 0.12", only: :test},
       {:inch_ex, "~> 2.0", only: :docs},
-      {:dialyxir, "~> 1.0.0-rc.4", only: :dev, runtime: false}
+      {:dialyxir, "~> 1.0.0-rc.4", only: :dev, runtime: false},
+      {:darwin, path: "../darwin", only: :test}
     ]
   end
 

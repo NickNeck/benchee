@@ -15,4 +15,6 @@ exclusions =
     [{:needs_fast_function_repetition, true} | exclusions]
   end
 
-ExUnit.start(exclude: exclusions)
+unless Darwin.running?() do
+  ExUnit.start(exclude: exclusions)
+end
